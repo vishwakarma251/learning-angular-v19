@@ -1,0 +1,51 @@
+<main class="main">
+  <h2 class="counter">{{ count }}</h2>
+  <div style="text-align: center">
+    <button (click)="handleCounter('minus')" class="btn btn-red">-</button>
+    <button (click)="handleCounter('reset')" class="btn btn-black">0</button>
+    <button (click)="handleCounter('plus')" class="btn btn-green">+</button>
+  </div>
+  <button type="text" class="button" name="login" (click)="handleEvent($event)">
+    Click Event
+  </button>
+  <div
+    style="background-color: green; height: 100px; width: 100px"
+    (mouseover)="handleEvent($event)"
+  ></div>
+  <div
+    style="background-color: red; height: 100px; width: 100px"
+    (mouseleave)="handleEvent($event)"
+  ></div>
+
+  <input
+    type="text"
+    name="user"
+    (input)="handleInputEvent($event)"
+    (focus)="handleInputEvent($event)"
+    (blur)="handleInputEvent($event)"
+  />
+  <hr style="width: 100%" />
+  <!-- Get & Set value in Angular -->
+  <h2>{{ displayName }}</h2>
+  <input
+    type="text"
+    value="{{ userName }}"
+    (input)="getValue($event)"
+    placeholder="Enter user name"
+  />
+  <button (click)="showName()">Get value</button>
+  <button (click)="setValue()">Set value</button>
+
+  <hr style="width: 100%" />
+  <h2>{{ email }}</h2>
+  <input
+    type="email"
+    value="{{ email }}"
+    placeholder="Enter email"
+    #emailField
+  />
+  <button type="button" (click)="getEmail(emailField.value)">Get email</button>
+  <button (click)="setEmail()" type="button">Set email</button>
+</main>
+
+<router-outlet />
