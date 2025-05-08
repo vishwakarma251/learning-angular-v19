@@ -1,0 +1,81 @@
+<main class="main">
+  <h1>IF Else | control flow</h1>
+  <button (click)="hide()">Hide</button>
+  <button (click)="show()">Show</button>
+  <button (click)="toggleFunction()">Toggle</button>
+  <!-- @if(display){
+  <div style="background-color: aqua; width: 100px; height: 100px"></div>
+  }  -->
+  @if(display) {
+  <div style="background-color: aqua; width: 100px; height: 100px"></div>
+  }@else {
+  <div
+    style="background-color: rgb(155, 157, 157); width: 100px; height: 100px"
+  ></div>
+  }
+  <hr style="width: 100%" />
+  <h2>Else IF | control flow</h2>
+
+  <button type="button" (click)="handleColor(1)">Red</button>
+  <button type="button" (click)="handleColor(2)">Blue</button>
+  <button type="button" (click)="handleColor(3)">Green</button>
+  <button type="button" (click)="handleColor(4)">Other</button>
+  <input
+    type="number"
+    placeholder="Enter number from 1-4"
+    min="1"
+    max="4"
+    (input)="handleInput($event)"
+    style="width: 150px"
+  />
+  @if(color == 1) {
+  <div style="background-color: red; width: 50px; height: 50px"></div>
+  } @else if (color == 2) {
+  <div style="background-color: blue; width: 50px; height: 50px"></div>
+  } @else if (color == 3) {
+  <div style="background-color: green; width: 50px; height: 50px"></div>
+  } @else {
+  <div style="background-color: black; width: 50px; height: 50px"></div>
+  }
+  <hr style="width: 100%" />
+  <!-- @switch control flow -->
+  <h2>Switch control flow</h2>
+
+  <button (click)="handleSwitchColor('red')">Red</button>
+  <button (click)="handleSwitchColor('green')">Green</button>
+  <button (click)="handleSwitchColor('blue')">Blue</button>
+  <button (click)="handleSwitchColor('black')">Other</button>
+  <input
+    placeholder="Enter color name"
+    (input)="handleSwitchInputColor($event)"
+  />
+  @switch (switchColor) { @case ('red') {
+  <h3 style="color: red">Red color</h3>
+  } @case ('green') {
+  <h3 style="color: green">Red color</h3>
+  } @case ('blue') {
+  <h3 style="color: blue">Red color</h3>
+  } @default {
+  <h3 style="color: black">No color matched</h3>
+
+  } }
+  <!-- @For Loop in Template -->
+  <hr style="width: 100%" />
+  <h2>For Loop in Template</h2>
+  <h4>
+    User list: @for (item of users; track item) {
+    <span>{{ item }}, </span>
+    }
+  </h4>
+  <h4>
+    Student details: <br />
+    @for (student of students; track $index;) {
+    <span
+      >Name: {{ student.name }}, Age: {{ student.age }}, Email:{{ student.email
+      }}<br
+    /></span>
+    }
+  </h4>
+</main>
+
+<router-outlet />
